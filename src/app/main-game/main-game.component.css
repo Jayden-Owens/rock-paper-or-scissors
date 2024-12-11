@@ -1,0 +1,9 @@
+.text {
+    border-radius: 6px;
+    margin-left: 8px;
+    padding: 8px;
+}
+.center-card {
+    margin-left: auto;
+    margin-right: auto;
+}

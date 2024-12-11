@@ -1,0 +1,62 @@
+<div class="center-card block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <div class="flex justify-center">
+        <h1>Select Rock Paper or Scissors</h1>
+    </div>
+    <div>
+      <label class="flex justify-center">
+        <input type="text" class="text" placeholder="Enter Name of Player 1" [(ngModel)]="playerOne" />
+      </label>
+    </div>
+    @if(gameType === 'multi') {
+      <div>
+        <label class="flex justify-center">
+          <input type="text" class="text" placeholder="Enter Name of Player 2" [(ngModel)]="playerTwo" />
+        </label>
+      </div>
+    }
+    @if(!winner) {
+      <div class="flex justify-center mt-4">
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+          <label class="mb-2">
+            <input type="radio" [(ngModel)]="userInput" value="1" class="mr-2" /> Rock
+          </label>
+          <br />
+          <label class="mb-2">
+            <input type="radio" [(ngModel)]="userInput" value="2" class="mr-2"/> Paper
+          </label>
+          <br />
+          <label class="mb-2">
+            <input type="radio" [(ngModel)]="userInput" value="3" class="mr-2"/> Scissors
+          </label>
+        </div>
+      </div>
+      @if(gameType === 'multi' && userInput) {
+        <div class="flex justify-center">
+          <label>
+            <input type="radio" [(ngModel)]="multiInput" value="1" /> Rock
+          </label>
+          <br />
+          <label>
+            <input type="radio" [(ngModel)]="multiInput" value="2" /> Paper
+          </label>
+          <br />
+          <label>
+            <input type="radio" [(ngModel)]="multiInput" value="3" /> Scissors
+          </label>
+        </div>
+      }
+      <div class="flex justify-center mt-4">
+        <button (click)="startGame()" type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+      </div>
+    } @else {
+      <div class="flex justify-center mt-4">
+        <h5>{{ winner }}</h5>
+      </div>
+      <div class="flex justify-center mt-4">
+        <h5>{{ results }}</h5>
+      </div>
+      <div class="flex justify-center">
+        <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" (click)="resetGame()">Play Again</button>
+      </div>
+    }
+</div>
