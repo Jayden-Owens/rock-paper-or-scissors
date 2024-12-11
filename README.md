@@ -8,3 +8,6 @@ The idea was to fo a multiplayer game in the same browser just do to time i didn
 
 # Over all improvements i would like to implement 
 i would like to add either icons or images to take place of the text for the rock paper and scissors. get the multiplayer working using a stepper so that each step of the game can be better managed. maybe implement something similar in single player as well. i would also like to use a toast to show who won the match. i would like to improve the formula to find the winner make it a little more readable and easier to change the messages and such. the overall flow of the game could be improved. right now the whoel game just shows and its not very easy on the eyes i would like to make the UX experience more fun maybe flash rocks from on the background if that was the winning selection or something similar. make the card more dynamic to the sizing of the text and more mobile friendly. 
+
+# Need to finish
+hook up to google firebase so users can sign in and save there game results. 

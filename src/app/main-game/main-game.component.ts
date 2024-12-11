@@ -14,8 +14,10 @@ export class MainGameComponent{
   public multiInput: number = 0
   public playerOne: string = ''
   public winner: string = ''
-  public playerTwo: string = ''
+  public playerTwo: string = 'Computer'
   public results: string = ''
+  public playerOneScore: number = 0
+  public playerTwoScore: number = 0
   constructor(private readonly route: ActivatedRoute, private readonly changeDetector: ChangeDetectorRef) {
     this.route.url.subscribe( params => {
         this.gameType = params[1].toString()
@@ -52,30 +54,36 @@ export class MainGameComponent{
           this.results = `Both selected Rock`
         } else if(cpu === 2) {
           this.winner = `${this.playerTwo} Has won`
+          this.playerTwoScore++
           this.results = `${this.playerOne} selected Rock and ${this.playerTwo} selected Paper`
         } else {
           this.winner = `${this.playerOne} Has won`
+          this.playerOneScore++
            this.results = `${this.playerOne} selected Rock and ${this.playerTwo} selected Scissors`
         }
         break
       case 2:
         if(cpu === 1) {
           this.winner = `${this.playerOne} Has won`
+          this.playerOneScore++
            this.results = `${this.playerOne} selected paper and ${this.playerTwo} selected Rock`
         } else if(cpu === 2) {
           this.winner = 'Tie'
            this.results = `Both selected paper`
         } else {
           this.winner = `${this.playerTwo} Has won`
+          this.playerTwoScore++
            this.results = `${this.playerOne} selected paper and ${this.playerTwo} selected scissors`
         }
         break
       case 3:
         if(cpu === 1) {
           this.winner = `${this.playerTwo} Has won`
+          this.playerTwoScore++
            this.results = `${this.playerOne} selected scissors and ${this.playerTwo} selected Rock`
         } else if(cpu === 2) {
           this.winner = `${this.playerOne} Has won`
+          this.playerOneScore++
           this.results = `${this.playerOne} selected scissors and ${this.playerTwo} selected paper`
         } else {
           this.winner = 'Tie'
